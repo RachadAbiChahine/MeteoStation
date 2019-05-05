@@ -18,8 +18,8 @@ def get_temp():
 
 
 def get_humidity_and_temp():
-    sensor = 11
-    pin = 22
+    sensor = '11'
+    pin = '22'
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
         return 'Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity)
