@@ -24,8 +24,7 @@ def get_humidity_and_temp():
     if humidity is not None and temperature is not None:
         return 'Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity)
     else:
-        print('Failed to get reading. Try again!')
-        sys.exit(1)
+        return 'unable to get information'
 
 
 if __name__ == '__main__':
