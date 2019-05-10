@@ -17,7 +17,7 @@
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-        var allDatum={{allData|e}}
+        var allDatum={{allData|safe}}
         allDatum.unshift(["date","temp", "hum"])
         console.log(allDatum)
       function drawChart() {
