@@ -24,3 +24,11 @@ hs_err_pid*
 
 #intellij
 .idea/
+
+#sqlite3
+meteo_station.db
+
+#python
+env/
+
+.DS_*

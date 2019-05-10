@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Home station</title>
+
+    <!-- Loading third party fonts -->
+
+    <!-- Loading main css file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+     <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+        var allDatum={{allData}}
+        allDatum.unshift(["date","temp", "hum"])
+        console.log(allDatum)
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(allDatum);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+
+
+<body>
+
+<div class="site-content">
+
+    <header class="site-header">
+        <div class="container shrinked">
+            <h1 class="logo">Raspi Station</h1>
+        </div>    <!-- .container -->
+    </header> <!-- .site-header -->
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title center-aligned">Adelina & Rachad<br> <span>Home Weather Station</span>
+            </h1>
+
+            <div class="counter-wrap center-aligned">
+                <div class="counter center-aligned">
+                    <div class="number">
+                        {{temperature}} <span>&#8451;</span>
+                    </div>
+                    <div class="caption">Temperature</div>
+                </div> <!-- .counter -->
+                <div class="counter center-aligned">
+                    <div class="number">{{humidity}} %</div>
+                    <div class="caption">Humidity</div>
+                </div> <!-- .counter -->
+            </div> <!-- .counter-wrap -->
+
+        </div>    <!-- .container -->
+    </main> <!-- .main-content -->
+
+
+</div>
+<div id="chart_div"></div>
+
+
+</body>
+
+</html>
