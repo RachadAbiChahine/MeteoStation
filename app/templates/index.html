@@ -17,14 +17,14 @@
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-        var allDatum={{allData}}
+        var allDatum={{allData|e}}
         allDatum.unshift(["date","temp", "hum"])
         console.log(allDatum)
       function drawChart() {
         var data = google.visualization.arrayToDataTable(allDatum);
 
         var options = {
-          title: 'Company Performance',
+          title: 'Meteo Station',
           curveType: 'function',
           legend: { position: 'bottom' }
         };

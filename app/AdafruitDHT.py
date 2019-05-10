@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sqlite3
 import json
-import time
+from datetime import datetime
 import Adafruit_DHT
 from flask import Flask, render_template
 from flask import json
@@ -54,7 +54,7 @@ def get_humidity_and_temp():
     else:
         data['error'] = "unable to get information"
     sql_statement = 'insert into meteo_station values(?,?,?)'
-    now = time.time()
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     cursor.execute(sql_statement, (now, temp, humidity))
     db.commit()
     return data
