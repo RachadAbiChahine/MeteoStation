@@ -3,7 +3,7 @@ Flask==1.0.2
 itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
-Werkzeug==0.15.2
+Werkzeug==0.15.3
 pycairo==1.18.0
 Terminator==0.98
 virtualenv==16.5.0
