@@ -27,19 +27,19 @@
 
             var materialOptions = {
                 chart: {
-                    title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+                    title: 'Temp and humidity'
                 },
-                height: 900,
+                height: 700,
                 series: {
                     // Gives each series an axis name that matches the Y-axis below.
-                    0: {axis: 'Temps'},
-                    1: {axis: 'Humidity'}
+                    0: {axis: 'Temps °c'},
+                    1: {axis: 'Humidity %'}
                 },
                 axes: {
                     // Adds labels to each axis; they don't have to match the axis names.
                     y: {
-                        Temps: {label: 'Temps (Celsius)'},
-                        Humidity: {label: 'Daylight'}
+                        Temps: {label: 'Temps'},
+                        Humidity: {label: 'Humidity'}
                     }
                 }
             };
