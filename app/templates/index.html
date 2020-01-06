@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <meta http-equiv="refresh" content="30"/>
 
     <title>Home station</title>
 
@@ -33,7 +34,7 @@
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-            chart.setColums([0, 1])
+            view.setColumns([0, 1]); //here you set the columns you want to display
             chart.draw(data, options);
         }
     </script>
