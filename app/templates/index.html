@@ -11,30 +11,31 @@
 
     <!-- Loading main css file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-     <!--Load the AJAX API-->
+    <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-        var allDatum={{allData|safe}}
-        allDatum.unshift(["date","temp"])
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        var allDatum = {{allData|safe}}
+            allDatum.unshift(["date", "temp", "hum"])
         console.log(allDatum)
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(allDatum);
 
-        var options = {
-          title: 'Meteo Station',
-          curveType: 'function',
-          intervals: { style: 'sticks' },
-          legend: { position: 'bottom' },
-           height: 800
-        };
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(allDatum);
 
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            var options = {
+                title: 'Meteo Station',
+                curveType: 'function',
+                intervals: {style: 'sticks'},
+                legend: {position: 'bottom'},
+                height: 800
+            };
 
-        chart.draw(data, options);
-      }
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.setColums([0, 1])
+            chart.draw(data, options);
+        }
     </script>
 </head>
 
@@ -57,12 +58,12 @@
             <div class="counter-wrap center-aligned">
                 <div class="counter center-aligned">
                     <div class="number">
-                        {{temperature}} <span>&#8451;</span>
+                        {{ temperature }} <span>&#8451;</span>
                     </div>
                     <div class="caption">Temperature</div>
                 </div> <!-- .counter -->
                 <div class="counter center-aligned">
-                    <div class="number">{{humidity}} %</div>
+                    <div class="number">{{ humidity }} %</div>
                     <div class="caption">Humidity</div>
                 </div> <!-- .counter -->
             </div> <!-- .counter-wrap -->
