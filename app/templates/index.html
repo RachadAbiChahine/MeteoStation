@@ -34,7 +34,7 @@
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-            view.setColumns([0, 1]); //here you set the columns you want to display
+            chart.setColumns([0, 1]); //here you set the columns you want to display
             chart.draw(data, options);
         }
     </script>
