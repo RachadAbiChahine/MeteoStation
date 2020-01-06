@@ -18,7 +18,7 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
         var allDatum={{allData|safe}}
-        allDatum.unshift(["date","temp", "hum"])
+        allDatum.unshift(["date","temp"])
         console.log(allDatum)
       function drawChart() {
         var data = google.visualization.arrayToDataTable(allDatum);
@@ -28,8 +28,7 @@
           curveType: 'function',
           intervals: { style: 'sticks' },
           legend: { position: 'bottom' },
-          width: 800,
-           height: 500
+           height: 800
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
