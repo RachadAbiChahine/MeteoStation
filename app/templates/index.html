@@ -30,8 +30,19 @@
                 curveType: 'function',
                 intervals: {style: 'sticks'},
                 legend: {position: 'bottom'},
-                height: 800
-            };
+                height: 800,
+                series: {
+                    // Gives each series an axis name that matches the Y-axis below.
+                    0: {axis: 'Temp'},
+                    1: {axis: 'hum'}
+                },
+                axes: {
+                    // Adds labels to each axis; they don't have to match the axis names.
+                    y: {
+                        Temp: {label: 'Temps (Celsius)'},
+                        hum: {label: 'hum'}
+                    }
+                };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart.draw(data, options);
